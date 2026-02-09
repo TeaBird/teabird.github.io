@@ -1,0 +1,19 @@
+<p><strong>Развертка sysmon+winlogbeat\nxlog</strong></p>
+<p><strong>Необходимые файлы:<br /></strong>Архив содержит в себе sysmon+winlogbeat папки.<br />Внутри winlogbeat папки лежит winlogbeat.yml &ndash; основной конфигурационный файл для winlogbeat</p>
+<p><strong><br />Адреса:</strong><br />Elasticsearch:&nbsp;192.168.10.149:9200<br />Kibana:&nbsp;192.168.10.149:5601</p>
+<p><strong>Развертка на windows server 2008:</strong></p>
+<p>Необходимая версия sysmon - 13.0</p>
+<p>Создание директорий:<br />mkdir C:\Monitoring</p>
+<p>mkdir C:\Monitoring\Sysmon</p>
+<p>mkdir C:\Monitoring\Winlogbeat</p>
+<p>В директории перенести файлы из соответствующих папок архива</p>
+<p>Установка sysmon:</p>
+<p>В mkdir C:\Monitoring\Sysmon закинуть Sysmon.exe</p>
+<p><br />Перейти cd C:\Monitoring\Sysmon</p>
+<p>Изменить кодировку конфига для 2008 версии windows server:</p>
+<p>$content = Get-Content sysmonconfig-export.xml | Out-String</p>
+<p>Сохранить без BOM: [System.IO.File]::WriteAllText("$pwd\config-fixed.xml", $content, [System.Text.Encoding]::UTF8)</p>
+<p>Установить: .\Sysmon.exe -accepteula -i config-fixed.xml</p>
+<p>Проверить установку: Get-Service Sysmon</p>
+<p>Winlogbeat не подходит для server2008, ставим nxlog</p>
+<p>Создание конфига &ndash; файл config_create</p>
