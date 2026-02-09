@@ -1,6 +1,4 @@
 <p><strong>Развертка sysmon+winlogbeat\nxlog</strong></p>
-<p><strong>Необходимые файлы:<br /></strong>Архив содержит в себе sysmon+winlogbeat папки.<br />Внутри winlogbeat папки лежит winlogbeat.yml &ndash; основной конфигурационный файл для winlogbeat</p>
-<p><strong><br />Адреса:</strong><br />Elasticsearch:&nbsp;192.168.10.149:9200<br />Kibana:&nbsp;192.168.10.149:5601</p>
 <p><strong>Развертка на windows server 2008:</strong></p>
 <p>Необходимая версия sysmon - 13.0</p>
 <p>Создание директорий:<br />mkdir C:\Monitoring</p>
@@ -17,3 +15,9 @@
 <p>Проверить установку: Get-Service Sysmon</p>
 <p>Winlogbeat не подходит для server2008, ставим nxlog</p>
 <p>Создание конфига &ndash; файл config_create</p>
+
+<p>Script для автостарта из директории:</p>
+<p>Sysmon.exe -accepteula -i sysmonconfig-export.xml
+sc create Winlogbeat binPath="C:\winlogbeat\winlogbeat.exe run -c C:\winlogbeat\winlogbeat.yml" DisplayName="Winlogbeat" start=auto
+sc start Winlogbeat
+pause</p></p>
