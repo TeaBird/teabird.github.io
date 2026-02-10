@@ -44,7 +44,7 @@
 <p>Скрипт - /opt/scripts/send_telegram.py</p>
 <p>Конфиг - /etc/elastalert2/config.yaml<br /><br />Просмотр событий в реальном времени - sudo journalctl -u elastalert2 -f --no-pager</p>
 <p><strong>scripts</strong></p>
-<p>Основные скрипты в /opt/scripts/ :<br />status_check.sh &ndash; общий статус системы<br />send_telegram.py &ndash; скрипт elastalert2 для пересылки уведомлений в telegram<br />restore_pipeline &ndash; скрипт для перезапуска tcpreplay<br />mikrocat.py &ndash; скрипт автоматического добавления адресов из Poor Reputation IP правил в address list Mikrotik<br />packets_speed_test &ndash; статистика проходящих пакетов<br /><br />Выполнена ротация логов с конфигурационным файлом в /etc/logrotate.d/suricata-syslog</p>
+<p>Основные скрипты в /opt/scripts/ :<br />status_check.sh &ndash; общий статус системы<br />send_telegram.py &ndash; скрипт elastalert2 для пересылки уведомлений в telegram<br />restore_pipeline &ndash; <br /> logs_cleaner.sh &ndash - скрипт для ротации логов; скрипт для перезапуска tcpreplay<br />mikrocat.py &ndash; скрипт автоматического добавления адресов из Poor Reputation IP правил в address list Mikrotik<br />packets_speed_test &ndash; статистика проходящих пакетов<br /><br />Выполнена ротация логов с конфигурационным файлом в /etc/logrotate.d/suricata-syslog</p>
 <p>Проверка ротации - systemctl status logrotate.timer</p>
 <p><strong>mikrocat</strong></p>
 <p>Просмотр логов в реальном времени - sudo journalctl -u mikrocat -f</p>
